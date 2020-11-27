@@ -83,7 +83,7 @@ def s_a(t, a_v, a_a, f_v, f_a, i):
     else:
         return 1.2 * a_v * f_v * t_l(f_v) * i / t ** 2
 
-def plot_espectro(a_v, a_a, f_v, f_a, i, step=0.01, end=10):
+def plot_espectro(a_v, a_a, f_v, f_a, i, step=0.01, end=10, save_as='figure.png'):
     x = np.arange(0, end, step)
     y = np.array([s_a(xi, a_v, a_a, f_v, f_a, i) for xi in x])
 
@@ -94,7 +94,7 @@ def plot_espectro(a_v, a_a, f_v, f_a, i, step=0.01, end=10):
     ax.set(xlabel='Período [s]', ylabel='aceleración de la gravedad', title='Espectro de aceleraciones')
     ax.grid()
 
-    fig.savefig("espectro.png")
+    fig.savefig(save_as)
 
 
 if __name__ == "__main__":
