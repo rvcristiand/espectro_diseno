@@ -34,6 +34,28 @@ def f_v(tipo_suelo, a_v):
         else:
             return 2.4
 
+def f_a(tipo_suelo, a_a):
+    tipo_suelo.lower()
+
+    if tipo_suelo == 'a':
+        return 0.8
+    elif tipo_suelo == 'b':
+        return 1
+    elif tipo_suelo == 'c':
+        if a_v < 0.2:
+            return 1.2
+        elif a_v < 0.4:
+            return 1.2 - (a_v - 0.2)
+        else:
+            return 1
+    elif tipo_suelo == 'd':
+        if a_v < 0.1:
+            return 1.6
+        elif a_v < 0.3:
+            return 1.6 - 2*(a_v - 0.1)
+        else:
+            return 1.2 - (a_v - 0.3)
+
 def t_0(a_v, a_a, f_v, f_a):
     return 0.1 * (a_v * f_v) / (a_a * f_a)
 
